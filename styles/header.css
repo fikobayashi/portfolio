@@ -1,0 +1,12 @@
+.header {
+    background-color: darkorange;
+    display: flex;
+    justify-content:space-between ;
+    padding: 20px;
+    align-items: center;
+    
+}
+
+.label-hdr {
+    float: right;
+}

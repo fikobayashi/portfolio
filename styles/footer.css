@@ -1,0 +1,17 @@
+div > .footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid #eaeaea;
+    background-color: darkorange;
+} 
+
+.app-logo {
+    width: 5vmin;
+    height: 5vmin;
+}
