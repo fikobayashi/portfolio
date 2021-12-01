@@ -1,27 +1,43 @@
-// const nodemailer = require('nodemailer')
 import nodemailer from 'nodemailer'
-// import config from '../../config.local'
 
-
-export default function sendEmail(req, res) {
+export default function (req, res) {
+  require('dotenv').config()
+  
   let transporter = nodemailer.createTransport({
+    port: 465,
     host: 'smtp.gmail.com',
-    port: 587,
     auth: {
       user: process.env.USERMAIL,
       pass: process.env.PASSMAIL
-    }
+    },
+    secure: true,
   })
 
-  transporter.sendMail({
+  const mailData = {
     from: `"Portfólio - <web>" <${process.env.USERMAIL}>`, // sender address
     to: process.env.USERMAIL, // list of receivers
     replyTo: req.body.email,
-    subject: "CONTATO ATRAVÉS DO SITE", // Subject line
-    text: req.body.mensagem, // plain text body
-    html: `<b>${req.body.nome}</b><br />${req.body.mensagem}`, // html body
-  }).then((response) => { res.send(response)})
-    .catch((error) => {res.send(error)})
+    subject: `Mensagem de ${req.body.nome}`, // Subject line
+    text: req.body.mensagem + " | Enviado por: " + req.body.email, // plain text body
+    html: `<div>${req.body.mensagem}</div><p>Enviado por: ${req.body.email}</p>`, // html body
+    
+  }
+
+  transporter.sendMail(mailData, function(error, info) {
+    if(error) 
+      console.log(error)
+    else
+      console.log('passou por aqui', info)
+   
+    
+  })
+    
+  console.log(req.body)
+  res.send('sucesso')
+  
 
 }
 
+// export default function (req, res) {
+//   console.log(req.body)
+// }
