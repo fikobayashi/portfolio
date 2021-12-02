@@ -14,7 +14,7 @@ body, ul, li, p {
     
 }
 
-@media screen and (max-width: 1366px) {
+@media all and (max-width: 1366px) {
     
     .container {
         height: 300px;
@@ -23,7 +23,7 @@ body, ul, li, p {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media all and (max-width: 700px) {
     
     .container {
         height: 560px;
