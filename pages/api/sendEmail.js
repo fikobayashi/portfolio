@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 
-export default function (req, res) {
+export default async (req, res) => {
   require('dotenv').config()
   
   let transporter = nodemailer.createTransport({
@@ -13,6 +13,19 @@ export default function (req, res) {
     secure: true,
   })
 
+  await new Promise((resolve, reject) => {
+    // verifica configuração das conexões
+    transporter.verify(function (error, success) {
+      if (error) {
+        console.log(error);
+        reject(error);
+      } else {
+        console.log("Servidor pronto");
+        resolve(success);
+      }
+    });
+  });
+
   const mailData = {
     from: `"Portfólio - <web>" <${process.env.USERMAIL}>`, // sender address
     to: process.env.USERMAIL, // list of receivers
@@ -23,14 +36,21 @@ export default function (req, res) {
     
   }
 
-  transporter.sendMail(mailData, function(error, info) {
-    if(error) 
-      console.log(error)
-    else
-      console.log('passou por aqui', info)
-   
+  await new Promise((resolve, reject) => {
+    // send mail
+    transporter.sendMail(mailData, function(error, info) {
+      if(error) {
+        console.log(error)
+        reject(err)
+      } else { 
+        console.log('passou por aqui', info)
+        resolve(info)
+      }
+     
+      
+    })
     
-  })
+  });
     
   console.log(req.body)
   res.send('sucesso')
