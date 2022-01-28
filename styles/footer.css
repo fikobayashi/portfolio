@@ -15,3 +15,33 @@ div > .footer {
     width: 5vmin;
     height: 5vmin;
 }
+
+@media (max-width: 640px) {
+    .title-footer {
+        display: none;
+    }
+
+    .footer > nav > ul > li.link-face {
+        padding: 8px;
+        flex: 50%;
+    }
+    .footer > nav > ul > li.link-linkedin {
+        padding: 8px;
+        flex: 50%;
+    }
+    .footer > nav > ul > li.link-git {
+        padding: 8px;
+        flex: 50%;
+    }
+
+
+}
+
+@media (max-width: 570px) {
+    .footer > nav > ul {
+        flex-direction: row;
+    }
+
+    
+
+}

@@ -1,18 +1,48 @@
-@media all and (max-width: 1366px) {
+@media (max-width: 1366px) {
     
     .cont-2 {
-        height: 600px;
-        
-        
+        height: 680px;
+            
     }
 }
 
-@media all and (max-width: 700px) {
+@media (max-width: 1024px) {
+    
+    .cont-2 {
+        height: 680px;
+            
+    }
+}
+
+@media (max-width: 700px) {
     
     .cont-2 {
         height: 750px;
-        
-        
+           
     }
     
+}
+
+@media (max-width: 375px) {
+
+   div .label-sobre , div .label-onde {
+        font-size: 1rem;
+   } 
+
+   p {
+        font-size: 0.9rem;
+   }
+
+}
+
+@media (max-width: 360px) {
+
+   div .label-sobre , div .label-onde {
+        font-size: 1rem;
+   } 
+
+   p {
+        font-size: 0.9rem;
+   }
+
 }

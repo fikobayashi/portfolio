@@ -1,16 +1,36 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
 
+export default function Header() {
+    
+    
+    useEffect(() => {
+        
+        let show = true;
+  
+        const menuSection = document.querySelector(".menu-section")
+        const menuToggle = menuSection.querySelector(".menu-toggle")
+  
+        menuToggle.addEventListener("click", () => {
+  
+            document.body.style.overflow = show ? "hidden" : "initial"
+  
+            menuSection.classList.toggle("on", show)
+            show = !show;
+        })
+        
+        
+                
+    }, []);
 
-class Header extends React.Component {
-  render() {
-      return(
-          <div className="header">
-              
-                  
-              <nav className="navbar navbar-expand-sm">
-                  <ul className="nav nav-pills">
+     
+    return (
+        
+        <div className="header">
+            <div className="menu-section">
+            <nav className="navbar navbar-expand-sm">
+                <ul className="nav nav-pills">
                 {/* <ul className="navbar-nav"> */}
                     <li className="nav-item">
                         <Link href="/">
@@ -29,21 +49,26 @@ class Header extends React.Component {
                     </li>
                     
                 </ul>
-              </nav>
-              <div>
-                  <div className="jumbotron ">
+            </nav>
+                        
+            <div className="menu-toggle">
+                <div className="one"></div>
+                <div className="two"></div>
+                <div className="three"></div>
+            </div>
+            </div>
+            <div>
+                <div className="jumbotron ">
 
-                      <h3 className="">Portfólio - Fernando I. Kobayashi</h3>
-                  </div>
-                  
-                <h7></h7>
-                <div className="label-hdr">
-                    <h7>&lt; Desenvolvedor Front End /&gt;</h7>
+                    <h3 className="label-nome">Portfólio - Fernando I. Kobayashi</h3>
                 </div>
-              </div>
-          </div>
-      )
-  }
+                
+            <h7></h7>
+            <div className="label-hdr">
+                <h7>&lt; Desenvolvedor Front End /&gt;</h7>
+            </div>
+            </div>
+        </div>
+    )
 }
 
-export default Header;

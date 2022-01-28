@@ -6,6 +6,7 @@ function IndexPage() {
             <Head>
                 <title>Fernando I. Kobayashi - Portfólio Web</title>
                 <meta property="og:title" content="My page title" key="title" />
+                
             </Head>
             
             

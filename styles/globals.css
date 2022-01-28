@@ -1,7 +1,18 @@
+html {
+    font-size: 62,5%;
+    
+}
+
+body {
+    font-size: 1.6rem;
+    
+}
+
 body, ul, li, p {
     margin: 0px;
     padding: 0px;
     list-style: none;
+
     /* font-size: 1.2rem; */
     /* font-family: Arial; */
 
@@ -9,12 +20,12 @@ body, ul, li, p {
 
 .bg-color {
     background: rgb(255, 174, 0);
-    min-height: 100vh;
+    min-height: 1024px;
    
     
 }
 
-@media all and (max-width: 1366px) {
+@media (max-width: 1024px) {
     
     .container {
         height: 300px;
@@ -23,7 +34,7 @@ body, ul, li, p {
     }
 }
 
-@media all and (max-width: 700px) {
+@media (max-width: 700px) {
     
     .container {
         height: 560px;
@@ -32,6 +43,7 @@ body, ul, li, p {
     }
     
 }
+
 
 /* .scroll {
     max-height: 200px;
