@@ -13,8 +13,8 @@ class Sobre extends React.Component {
                 <Header></Header>
                 <div className="container cont-2 mt-5">
                     <div className="row">
-                        <h2>&lt; Sobre /&gt;</h2>
-                        <div id="sobre-onde"><h5>&lt; Onde Trabalhou /&gt;</h5></div>
+                        <h2 className="label-sobre">&lt; Sobre /&gt;</h2>
+                        <div id="sobre-onde"><h5 className="label-onde">&lt; Onde Trabalhou /&gt;</h5></div>
                         <p>
                             -&nbsp; Freelancer atualmente - Desenvolvedor Front End <br />
                             &nbsp;&nbsp;&nbsp;Desenvolvimento de soluções Front End<br />                           
