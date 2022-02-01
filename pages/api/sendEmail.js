@@ -1,16 +1,34 @@
 import nodemailer from 'nodemailer'
+import { google } from 'googleapis'
+
+const { OAuth2 } = google.auth;
+
+const email = process.env.USERMAIL
+
+const clientId = process.env.CLIENT_ID
+const clientSecret = process.env.CLIENT_SECRET
+const refreshToken = process.env.REFRESH_TOKEN;
+
+const OAuth2_client = new OAuth2(clientId, clientSecret)
+OAuth2_client.setCredentials({ refresh_token: refreshToken })
+
+const accessToken = OAuth2_client.getAccessToken();
 
 export default async (req, res) => {
   require('dotenv').config()
   
   let transporter = nodemailer.createTransport({
-    port: 465,
-    host: 'smtp.gmail.com',
+
+    service: 'gmail',
     auth: {
-      user: process.env.USERMAIL,
-      pass: process.env.PASSMAIL
-    },
-    secure: true,
+      type: 'OAuth2',
+      user: email,
+      clientId,
+      clientSecret,
+      refreshToken,
+      accessToken
+    }
+    
   })
 
   await new Promise((resolve, reject) => {
@@ -55,9 +73,6 @@ export default async (req, res) => {
   console.log(req.body)
   res.send('sucesso')
   
+  
 
 }
-
-// export default function (req, res) {
-//   console.log(req.body)
-// }
