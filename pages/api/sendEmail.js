@@ -3,11 +3,11 @@ import { google } from 'googleapis'
 
 const { OAuth2 } = google.auth;
 
-const email = USERMAIL
+const email = process.env.USERMAIL
 
-const clientId = CLIENT_ID
-const clientSecret = CLIENT_SECRET
-const refreshToken = REFRESH_TOKEN;
+const clientId = process.env.CLIENT_ID
+const clientSecret = process.env.CLIENT_SECRET
+const refreshToken = process.env.REFRESH_TOKEN;
 
 const OAuth2_client = new OAuth2(clientId, clientSecret)
 OAuth2_client.setCredentials({ refresh_token: refreshToken })
@@ -45,8 +45,8 @@ export default async (req, res) => {
   });
 
   const mailData = {
-    from: `"Portfólio - <web>" <${USERMAIL}>`, // sender address
-    to: USERMAIL, // list of receivers
+    from: `"Portfólio - <web>" <${process.env.USERMAIL}>`, // sender address
+    to: process.env.USERMAIL, // list of receivers
     replyTo: req.body.email,
     subject: `Mensagem de ${req.body.nome}`, // Subject line
     text: req.body.mensagem + " | Enviado por: " + req.body.email, // plain text body
