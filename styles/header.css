@@ -50,6 +50,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        
     }
 
     .menu-section.on nav {
@@ -86,7 +88,8 @@
         display: block;
         
     }
-  
+    
+    
     
 }
 
