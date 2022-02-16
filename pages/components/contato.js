@@ -30,7 +30,7 @@ export default function Contato() {
             
             if (res.status === 200) {
                 console.log(res.status, 'Envio com sucesso')
-                // alert('Email enviado com sucesso!')
+                alert('Email enviado com sucesso!')
                 setSubmitted(true)
                 setName('')
                 setEmail('')

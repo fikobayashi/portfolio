@@ -34,15 +34,15 @@ body, ul, li, p {
     }
 }
 
-@media (max-width: 700px) {
-    
+/* @media (max-width: 700px) {
+
     .container {
         height: 560px;
-        
+         
         
     }
     
-}
+} */
 
 
 /* .scroll {
