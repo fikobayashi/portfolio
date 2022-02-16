@@ -23,8 +23,19 @@
     
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
+    
+   div .label-sobre , div .label-onde {
+        font-size: 1rem;
+   } 
 
+   p {
+        font-size: 0.85rem;
+   }
+
+}
+@media (max-width: 375px) {
+    
    div .label-sobre , div .label-onde {
         font-size: 1rem;
    } 
