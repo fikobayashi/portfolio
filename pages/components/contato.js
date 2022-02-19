@@ -38,6 +38,9 @@ export default function Contato() {
 
                 
     
+            } else {
+                console.log(res.status, 'Erro ao enviar')
+                alert('Erro no envio, tente enviar mais tarde!')
             }
             
         }).catch((error) => {
